@@ -30,7 +30,10 @@
             <input type="email" class="form-control amountip" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Amount</label>
         </div>
-
+        <div class="form-floating inputs">
+            <input type="text" class="form-control descriptionip" placeholder="Description">
+            <label>Description</label>
+        </div>
         <select class="form-select inputs transactiontype" aria-label="Default select example">
             <option selected>Transaction Type</option>
             <option value="income">Income</option>
@@ -84,6 +87,7 @@
             <th>Amount</th>
             <th>Transaction Type</th>
             <th>Transaction Date</th>
+             <th>Description</th> 
             <th>Action</th>
         </tr>
 
@@ -103,6 +107,8 @@
             let dateInput = document.getElementsByClassName('dateip')[0];
             let amountInput = document.getElementsByClassName('amountip')[0];
             let typeInput = document.getElementsByClassName('transactiontype')[0];
+            let description = document.getElementsByClassName('descriptionip')[0].value;
+
 
             let date = dateInput.value;
             let amount = amountInput.value;
@@ -126,6 +132,10 @@
             let dateCell = document.createElement('td');
             dateCell.innerText = date;
 
+            let descCell = document.createElement('td');
+            descCell.innerText = description;
+
+            
             let binCell = document.createElement('td');
             let deleteButton = document.createElement('button');
             let binImage = document.createElement('img');
@@ -141,6 +151,7 @@
             row.appendChild(amountCell);
             row.appendChild(transactionCell);
             row.appendChild(dateCell);
+            row.appendChild(descCell); 
             row.appendChild(binCell);
 
             document.getElementById('table').appendChild(row);
@@ -162,7 +173,9 @@
             dateInput.value = '';
             amountInput.value = '';
             typeInput.value = 'Transaction Type';
-        }   
+            document.getElementsByClassName('descriptionip')[0].value = '';
+
+        }
 
 
     </script>
